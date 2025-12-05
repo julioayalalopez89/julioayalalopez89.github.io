@@ -9,75 +9,93 @@ import Title from "../components/Title.astro";
 ---
 
 <Layout title= "Ayala | Portfolio">
-<script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
-	<header><Navbar /></header>
-		<main>
-			<section class="about">
-				<model-viewer class="model3d"
-				    src="github.glb"
-				    alt="Github Logo"
-				    auto-rotate
-				    camera-controls
-				    style="width: 400px; height: 400px; margin: auto;">
-				</model-viewer>	
-				
-				<article>
-					<p>Hi!, I'm Julio Cesar Ayala Lopez</p>
-					<Title text='Software Developer'/>
-				</article>
 
-				<Button message='Latest Posts' icon='/external-link.svg' link='#'/>
-			</section>
-			<section class="skills">
-				<Title text='Skills & Technologies'/>
-				<section>
-					<SkillCard 
-						title='Frontend Development'
-						description='Developing websites with JavaScript, React, and Astro'
-						icon='/design.svg'
-					/>
-					<SkillCard 
-						title='Backend Development'
-						description=' Developing APIs with JavaScript and Python'
-						icon='/server.svg'
-					/>
-					<SkillCard 
-						title='Databases'
-						description='Databases like PostgreSQL and MongoDB.'
-						icon='/database.svg'
-					/>
-				</section>
-			</section>
-			<section class="work">
-				<Title text='My Work'/>
-				<section>
-					<ProjectCard 
-					title='My Project #1'
-					description='Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-					link='#'
-					/>
-					<ProjectCard 
-						title='My Project #2'
-						description='Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-						link='#'
-					/>
-					<ProjectCard 
-						title='My Project #3'
-						description='Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-						link='#'
-					/>
-				</section>
-				
-			</section>
-			<section class="contact">
-				<Title text='Tell me about our next project Together'/>
-				<Button message='Send Message' icon='/email.svg' link='julio:julioiayalalopez89@gmail.com'/>
-			</section>
-		</main>
-		<Footer />
+<script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+
+<header><Navbar /></header>
+
+<main>
+	<!-- ABOUT SECTION -->
+	<section class="about">
+		
+		<!-- Background 3D -->
+		<div class="model-bg">
+			<model-viewer 
+				class="model3d"
+				src="github.glb"
+				alt="Github Logo"
+				auto-rotate
+				camera-controls
+				disable-zoom>
+			</model-viewer>
+		</div>
+
+		<article>
+			<p>Hi!, I'm Julio Cesar Ayala Lopez</p>
+			<Title text='Software Developer'/>
+		</article>
+
+		<Button message='Latest Posts' icon='/external-link.svg' link='#'/>
+	</section>
+
+	<!-- SKILLS -->
+	<section class="skills">
+		<Title text='Skills & Technologies'/>
+		<section>
+			<SkillCard 
+				title='Frontend Development'
+				description='Developing websites with JavaScript, React, and Astro'
+				icon='/design.svg'
+			/>
+			<SkillCard 
+				title='Backend Development'
+				description=' Developing APIs with JavaScript and Python'
+				icon='/server.svg'
+			/>
+			<SkillCard 
+				title='Databases'
+				description='Databases like PostgreSQL and MongoDB.'
+				icon='/database.svg'
+			/>
+		</section>
+	</section>
+
+	<!-- WORK -->
+	<section class="work">
+		<Title text='My Work'/>
+		<section>
+			<ProjectCard 
+				title='My Project #1'
+				description='Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+				link='#'
+			/>
+			<ProjectCard 
+				title='My Project #2'
+				description='Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+				link='#'
+			/>
+			<ProjectCard 
+				title='My Project #3'
+				description='Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+				link='#'
+			/>
+		</section>
+	</section>
+
+	<!-- CONTACT -->
+	<section class="contact">
+		<Title text='Tell me about our next project Together'/>
+		<Button message='Send Message' icon='/email.svg' link='julio:julioiayalalopez89@gmail.com'/>
+	</section>
+
+</main>
+
+<Footer />
 </Layout>
 
 <style>
+
+	/* --- MAIN LAYOUT --- */
 	main {
 		margin: 50px auto 0 auto;
 		max-width: 1020px;
@@ -87,36 +105,66 @@ import Title from "../components/Title.astro";
 		gap: 100px;
 	}
 
+	header {
+		position: relative;
+		z-index: 999;
+	}
+
+	/* --- ABOUT SECTION WITH 3D BACKGROUND --- */
 	.about {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		gap: 40px;
+
 		width: 100%;
 		height: calc(100vh - 50px);
+
 		text-align: center;
 		border-bottom: 1px solid rgb(30, 30, 30, 0.3);
 		padding: 0 20px;
+
+		overflow: hidden; /* evita que el 3D se salga */
 	}
 
-	.about > img {
-		width: 150px;
-		border-radius: 9999px;
+	/* Background container */
+	.model-bg {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		pointer-events: none; /* el usuario puede clicar el texto */
+	}
+
+	/* 3D model fills whole section */
+	.model3d {
+		width: 100%;
+		height: 100%;
 		object-fit: cover;
+	}
+
+	/* Content ABOVE the 3D model */
+	.about > article,
+	.about > button {
+		position: relative;
+		z-index: 2;
 	}
 
 	.about > article {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
 		align-items: center;
 	}
+
 	.about > article > p {
 		color: #1e1e1e;
 		font-style: italic;
 	}
 
+	/* --- SKILLS SECTION --- */
 	.skills {
 		display: flex;
 		flex-direction: column;
@@ -134,6 +182,7 @@ import Title from "../components/Title.astro";
 		justify-content: center;
 	}
 
+	/* --- WORK SECTION --- */
 	.work {
 		display: flex;
 		flex-direction: column;
@@ -151,6 +200,7 @@ import Title from "../components/Title.astro";
 		justify-content: center;
 	}
 
+	/* --- CONTACT --- */
 	.contact {
 		display: flex;
 		flex-direction: column;
@@ -160,6 +210,7 @@ import Title from "../components/Title.astro";
 		padding: 0px 20px 100px 20px;
 	}
 
+	/* --- MOBILE RESPONSIVE --- */
 	@media screen and (max-width: 700px) {
 		main {
 			margin: 0 auto;
@@ -167,10 +218,6 @@ import Title from "../components/Title.astro";
 
 		.about {
 			height: 80vh;
-		}
-
-		.about > img {
-			width: 100px;
 		}
 	}
 
