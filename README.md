@@ -64,10 +64,11 @@ Havana Technological Institute (ISPJAE) | Havana, Cuba | July 2012
 
 ## 📫 Find me at:
 
-![Website](https://img.shields.io/badge/Website-julioayalalopez89.github.io-4CAF50?style=for-the-badge&logo=Google-Chrome&logoColor=white)
-![LinkedIn](https://img.shields.io/badge/LinkedIn-Julio%20Cesar%20Ayala%20Lopez-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-julioayalalopez89-181717?style=for-the-badge&logo=github&logoColor=white)
-![X](https://img.shields.io/badge/X-@tuusuario-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)
+![Website](https://img.shields.io/badge/Website-julioayalalopez89.github.io-4CAF50?style=for-the-badge&logo=Google-Chrome&logoColor=white)&nbsp;&nbsp;
+![LinkedIn](https://img.shields.io/badge/LinkedIn-Julio%20Cesar%20Ayala%20Lopez-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)&nbsp;&nbsp;
+![GitHub](https://img.shields.io/badge/GitHub-julioayalalopez89-181717?style=for-the-badge&logo=github&logoColor=white)&nbsp;&nbsp;
+![X](https://img.shields.io/badge/X-@julioayalalopez-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)
+
 
 
 ---
