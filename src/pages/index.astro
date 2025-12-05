@@ -13,7 +13,7 @@ import Title from "../components/Title.astro";
 	<header><Navbar /></header>
 		<main>
 			<section class="about">
-				<model-viewer 
+				<model-viewer class="model3d"
 				    src="github.glb"
 				    alt="Github Logo"
 				    auto-rotate
@@ -87,6 +87,9 @@ import Title from "../components/Title.astro";
 		gap: 100px;
 	}
 
+	.model3d	{	
+		margin=0	
+	}
 	.about {
 		display: flex;
 		flex-direction: column;
